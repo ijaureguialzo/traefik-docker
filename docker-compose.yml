@@ -1,0 +1,14 @@
+services:
+
+  traefik:
+    image: traefik:3.1
+    ports:
+      - "8080:8080"
+      - "80:80"
+    volumes:
+      - ./traefik.yml:/etc/traefik/traefik.yml
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  test:
+    image: traefik/whoami
+    container_name: test
