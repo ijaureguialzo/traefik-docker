@@ -1,14 +1,23 @@
 services:
 
   traefik:
-    image: traefik:3.1
+    image: traefik:3.2
+    # Enables the web UI and tells Traefik to listen to docker
+    command: --api.insecure=true --providers.docker
     ports:
-      - "8080:8080"
+      # The HTTP port
       - "80:80"
+      # The Web UI (enabled by --api.insecure=true)
+      - "8080:8080"
     volumes:
-      - ./traefik.yml:/etc/traefik/traefik.yml
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock:ro
 
   test:
     image: traefik/whoami
     container_name: test
+    labels:
+      - "traefik.http.routers.whoami.rule=Host(`whoami.test`)"
+
+networks:
+  default:
+    name: ${NETWORK_NAME:-traefik-network}

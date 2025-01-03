@@ -13,13 +13,13 @@ make start
 Acceder al sitio de prueba:
 
 ```
-curl --header 'Host:test-traefik-docker.docker.localhost' 'http://localhost:80/'
+curl --header 'Host:whoami.test' 'http://localhost:80/'
 ```
 
 O también:
 
 ```
-curl test-traefik-docker.docker.localhost
+curl whoami.test
 ```
 
 Acceder al [dashboard](http://localhost:8080) de configuración.
@@ -27,4 +27,4 @@ Acceder al [dashboard](http://localhost:8080) de configuración.
 ## Referencias
 
 - [Docker Official Image](https://hub.docker.com/_/traefik)
-- [Install Traefik](https://doc.traefik.io/traefik/getting-started/install-traefik/#use-the-official-docker-image)
+- [Quick Start](https://doc.traefik.io/traefik/getting-started/quick-start/)
