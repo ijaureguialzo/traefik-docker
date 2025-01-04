@@ -1,0 +1,4 @@
+services:
+
+  traefik:
+    restart: unless-stopped
