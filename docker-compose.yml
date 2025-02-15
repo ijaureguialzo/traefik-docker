@@ -2,6 +2,8 @@ services:
 
   traefik:
     image: traefik:3.2
+    environment:
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL:-test@test.com}
     ports:
       - "443:443"
       - "8080:8080"

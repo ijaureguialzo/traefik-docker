@@ -14,7 +14,7 @@ entryPoints:
 certificatesResolvers:
   le-resolver:
     acme:
-      email: ${LETSENCRYPT_EMAIL:-test@test.com}
+      email: '{{ env "LETSENCRYPT_EMAIL" | default "test@test.com" }}'
       storage: acme.json
       httpChallenge:
         entryPoint: web
