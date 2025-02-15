@@ -1,0 +1,20 @@
+api:
+  insecure: true
+
+providers:
+  docker: { }
+
+entryPoints:
+  web:
+    address: ":80"
+
+  websecure:
+    address: ":443"
+
+certificatesResolvers:
+  le-resolver:
+    acme:
+      email: ${LETSENCRYPT_EMAIL:-test@test.com}
+      storage: acme.json
+      httpChallenge:
+        entryPoint: web

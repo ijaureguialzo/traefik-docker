@@ -2,22 +2,24 @@ services:
 
   traefik:
     image: traefik:3.2
-    # Enables the web UI and tells Traefik to listen to docker
-    command:
-      - --api.insecure=true
-      - --providers.docker
-      - --entryPoints.websecure.address=:443
     ports:
       - "443:443"
       - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro
+      - acme_data:/etc/traefik/acme
 
   test:
-    image: traefik/whoami
+    image: nginxdemos/hello
     container_name: test
     labels:
       - "traefik.http.routers.whoami.rule=Host(`whoami.test`)"
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.tls=true"
+
+volumes:
+  acme_data:
 
 networks:
   default:
