@@ -5,6 +5,7 @@ services:
     environment:
       - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL:-test@test.com}
     ports:
+      - "80:80"
       - "443:443"
       - "8080:8080"
     volumes:
