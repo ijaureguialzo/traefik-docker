@@ -12,9 +12,8 @@ entryPoints:
     address: ":443"
 
 certificatesResolvers:
-  le-resolver:
+  letsencrypt:
     acme:
-      email: '{{ env "LETSENCRYPT_EMAIL" | default "test@test.com" }}'
       storage: acme.json
       httpChallenge:
         entryPoint: web
