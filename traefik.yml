@@ -2,7 +2,8 @@ api:
   insecure: true
 
 providers:
-  docker: { }
+  docker:
+    exposedByDefault: false
 
 entryPoints:
   web:
