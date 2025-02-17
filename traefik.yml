@@ -1,5 +1,6 @@
 api:
   insecure: true
+  disableDashboardAd: true
 
 providers:
   docker:

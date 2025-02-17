@@ -2,8 +2,6 @@ services:
 
   traefik:
     image: traefik:${TRAEFIK_VERSION:-3}
-    environment:
-      - TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_EMAIL=${LETSENCRYPT_EMAIL:-test@test.com}
     ports:
       - "80:80"
       - "443:443"
