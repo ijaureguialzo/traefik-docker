@@ -6,6 +6,8 @@ help: _header
 	@echo ------------------------
 	@echo start / stop / restart
 	@echo ------------------------
+	@echo password
+	@echo ------------------------
 	@echo stats / logs
 	@echo clean
 	@echo ------------------------
@@ -31,6 +33,9 @@ stop:
 	@docker compose stop
 
 restart: stop start
+
+password:
+	@echo $$(htpasswd -nB username) | sed -e s/\\$$/\\$$\\$$/g
 
 stats:
 	@docker stats
