@@ -15,9 +15,10 @@ help: _header
 _urls: _header
 	${info }
 	@echo Sitios disponibles:
-	@echo ----------------------------------
+	@echo -------------------------------
 	@echo [Traefik] http://localhost:8080
-	@echo ----------------------------------
+	@echo [Test] https://whoami.test
+	@echo -------------------------------
 
 _header:
 	@echo -----------------
