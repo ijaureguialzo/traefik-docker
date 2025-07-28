@@ -25,7 +25,7 @@ _header:
 	@echo -----------------
 
 _start-command:
-	@docker compose up -d --remove-orphans
+	@docker compose -f docker-compose.yml -f docker-compose.dashboard.yml up -d --remove-orphans
 
 start: _start-command _urls
 
